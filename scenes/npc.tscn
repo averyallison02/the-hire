@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://0dnbnj3fyqyj"]
+
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_egl6f"]
+[ext_resource type="Texture2D" uid="uid://bdcx55niow4rl" path="res://assets/01-generic.png" id="2_ljmwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmk8f"]
+size = Vector2(10, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dct42"]
+atlas = ExtResource("2_ljmwg")
+region = Rect2(208, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8pvq"]
+atlas = ExtResource("2_ljmwg")
+region = Rect2(160, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytd17"]
+atlas = ExtResource("2_ljmwg")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4v75"]
+atlas = ExtResource("2_ljmwg")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aucpp"]
+atlas = ExtResource("2_ljmwg")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrb7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dct42")
+}],
+"loop": true,
+"name": &"ari",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8pvq")
+}],
+"loop": true,
+"name": &"cora",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytd17")
+}],
+"loop": true,
+"name": &"dev",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4v75")
+}],
+"loop": true,
+"name": &"jovi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aucpp")
+}],
+"loop": true,
+"name": &"levi",
+"speed": 5.0
+}]
+
+[node name="NPC" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_egl6f")
+metadata/name = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.333333, 0.333333)
+shape = SubResource("RectangleShape2D_hmk8f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mrb7s")
+animation = &"jovi"
